@@ -16,4 +16,10 @@ class ApiController extends Controller
         return json_encode($data);
     }
 
+    public function apiDeleteVideogame($id) {
+        $videogame = Videogame::findOrFail($id);
+        $videogame -> delete();
+        return json_encode($videogame);
+    }
+
 }

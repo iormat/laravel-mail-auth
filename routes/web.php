@@ -17,4 +17,5 @@ Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
 // API
 Route::prefix('/api') -> group(function() {
     Route::get('/videogames/get', 'ApiController@apiGetVideogames') -> name('api.videogames.get');
+    Route::get('/videogame/delete/{id}', 'ApiController@apiDeleteVideogame') -> name('api.videogame.delete');
 });
