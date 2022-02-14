@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Videogame;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\DeletedGame;
 
 class ApiController extends Controller
 {
@@ -19,6 +21,8 @@ class ApiController extends Controller
     public function apiDeleteVideogame($id) {
         $videogame = Videogame::findOrFail($id);
         $videogame -> delete();
+
+        Mail::to('test@mail.test') -> send(new DeletedGame());
         return json_encode($videogame);
     }
 
