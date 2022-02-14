@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Videogame;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\DeletedGame;
+use Illuminate\Support\Facades\Auth;
 
 class ApiController extends Controller
 {
@@ -22,7 +23,8 @@ class ApiController extends Controller
         $videogame = Videogame::findOrFail($id);
         $videogame -> delete();
 
-        Mail::to('test@mail.test') -> send(new DeletedGame());
+        Mail::to('test@mail.test') -> send(new DeletedGame($videogame));
+        Mail::to(Auth::user() -> email) -> send(new DeletedGame($videogame));
         return json_encode($videogame);
     }
 
