@@ -10972,6 +10972,16 @@ body {
   margin: 0;
 }
 
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+}
+
 h1 a {
   color: inherit;
 }
@@ -11013,5 +11023,10 @@ header {
   padding: 2rem;
   display: flex;
   justify-content: space-between;
+}
+
+footer {
+  text-align: center;
+  margin-top: auto;
 }
 

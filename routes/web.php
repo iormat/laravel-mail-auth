@@ -12,3 +12,9 @@ Route::post('/login', 'Auth\LoginController@login');
 Route::get('/register', 'GuestController@register') -> name('register');
 Route::post('/register', 'Auth\RegisterController@register');
 Route::get('/logout', 'Auth\LoginController@logout') -> name('logout');
+
+
+// API
+Route::prefix('/api') -> group(function() {
+    Route::get('/videogames/get', 'ApiController@apiGetVideogames') -> name('api.videogames.get');
+});

@@ -9,10 +9,14 @@
     <title> Videogames </title>
 </head>
 <body>
-    @include('components.header')
+    <div id="app">
+        @include('components.header')
 
-    @yield('content')
+        <main>
+            @yield('content')
+        </main>
 
-    @include('components.footer')
+        @include('components.footer')
+    </div>
 </body>
 </html>
